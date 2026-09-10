@@ -1,0 +1,239 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "4fc62632-1714-4499-8fdc-ecdaebb28920",
+   "metadata": {},
+   "source": [
+    "# Ejercicio \n",
+    "Una cepa de E. Coli tiene una tasa de crecimiento tal que un individuo se duplica cada 30 minutos.\n",
+    "Calcula en cuanto tiempo esta cepa: \n",
+    "a) Llenaría el volúmen de la Tierra (A partir del radio de la Tierra y cosiderandola como una esfera hueca)\n",
+    "b) Cubriría la superficie de la Tierra\n",
+    "c) Repite el calculo para una tasa de crecimeinto \n",
+    "    c.1) Se duplica cada hora \n",
+    "    c.2) Se duplica cada media hora \n",
+    "    c.3) Se duplicada cada 1/4 de hora "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "id": "259a20d6-0126-49fa-94e4-5a86970ad1af",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import math as mt"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "id": "df06a26c-5c5b-4983-b8ab-202d1f7ca66d",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "2.0687728224880002e+39\n"
+     ]
+    }
+   ],
+   "source": [
+    "# a) Llenar el volumen de la Tierra - Saber la cantidad de bacterias que puede almacenar la Tierra\n",
+    "N = (6371e3)**3 / (0.5e-6)**3\n",
+    "print(N)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "id": "c2d9ad69-523a-4e05-8287-d60c7d3eca7f",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "130.6039709282774\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Generaciones de bacterias necesarias \n",
+    "T = mt.log(N , 2) \n",
+    "print(T)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "id": "4ca7fc28-d71e-4932-97b9-6681d948b4ae",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "65.3019854641387\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Tiempo (se duplica cada 30 minutos) \n",
+    "B = T * 30\n",
+    "Bh = B / 60\n",
+    "print(Bh)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "id": "2b5da717-3ba2-4f08-99e7-11532217039a",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1.62358564e+26\n"
+     ]
+    }
+   ],
+   "source": [
+    "# b) Cubrir la superficie de la Tierra \n",
+    "Ns = (6371e3)**2 / (0.5e-6)**2\n",
+    "print(Ns)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 24,
+   "id": "7314e0d6-aba0-452e-80d8-d390cf1fa439",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "87.06931395218493\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Generarciones de bacterias necesarias\n",
+    "Ts = mt.log(Ns, 2)\n",
+    "print(Ts)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "id": "347fdd1f-2c43-4b70-af2b-7d4e7c046612",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "43.534656976092464\n"
+     ]
+    }
+   ],
+   "source": [
+    "#Tiempo (se duplica cada 30 minutos)\n",
+    "Bs = Ts * 30\n",
+    "Bhs = Bs / 60\n",
+    "print(Bhs)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "id": "82547975-24cc-4392-9e58-8215fb35de58",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "7836.238255696643\n",
+      "3918.1191278483216\n",
+      "1959.0595639241608\n"
+     ]
+    }
+   ],
+   "source": [
+    "# c) Calculo según las tasas de crecimiento (usando el volumen)\n",
+    "# Minutos si de duplica cada hora \n",
+    "Tc1 = T * 60\n",
+    "print(Tc1)\n",
+    "# Minutos si se duplicada cada media hora \n",
+    "Tc2 = T * 30\n",
+    "print(Tc2)\n",
+    "# Minutos si se duplica cada 1/4 de hora\n",
+    "Tc3 = T * 15\n",
+    "print(Tc3)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "id": "f0ad07d7-037a-467d-ab86-d4472355c7b2",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "5224.158837131095\n",
+      "2612.0794185655477\n",
+      "1306.0397092827739\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Calculo según las tasas de crecimiento (usando la superficie)\n",
+    "# Minutos si de duplica cada hora \n",
+    "Tsc1 = Ts * 60\n",
+    "print(Tsc1)\n",
+    "# Minutos si se duplicada cada media hora \n",
+    "Tsc2 = Ts * 30\n",
+    "print(Tsc2)\n",
+    "# Minutos si se duplica cada 1/4 de hora\n",
+    "Tsc3 = Ts * 15\n",
+    "print(Tsc3)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "f2de523c-a477-4d50-9b43-199edf4632f6",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.14.6"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
